@@ -3,6 +3,24 @@ from yt_dlp import YoutubeDL
 import requests
 from PIL import Image
 from io import BytesIO
+import os
+import subprocess
+import sys
+
+# Ensure dependencies are installed
+REQUIRED_PACKAGES = [
+    "streamlit",
+    "yt-dlp",
+    "pillow",
+    "requests"
+]
+
+for package in REQUIRED_PACKAGES:
+    try:
+        __import__(package)
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
 
 # Set page configuration with custom theme
 st.set_page_config(
